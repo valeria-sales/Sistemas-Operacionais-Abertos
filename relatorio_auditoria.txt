@@ -1,0 +1,124 @@
+==================================================
+RELATORIO DE AUDITORIA - NETADMIN
+Servidor: little-F80uh
+Data/Hora: 25/11/2026 21:59:05
+==================================================
+
+=== INFORMACOES DO SERVIDOR (MODO DETALHADO) ===
+INFORMACOES DO SISTEMA
+Hostname: little-F80uh
+Data/Hora: 25/11/2026 21:59:05
+Sistema operacional: Linux
+Kernel: 7.2.14-arch1-1
+Tempo ligado: up 1 hour, 35 minutes
+
+INTERFACES DE REDE
+enp1s0
+  Estado: ATIVA
+  Endereco MAC: 64:1c:67:86:4c:f3
+  IPv4: NAO CONFIGURADO
+  IPv6: NAO CONFIGURADO
+  MTU: 1500
+  ATENCAO: Interface ativa, mas sem endereco IP configurado.
+lo
+  Estado: ATIVA
+  Endereco MAC: N/A
+  IPv4: 127.0.0.1/8
+  IPv6: ::1/128
+  MTU: 65536
+wlan0
+  Estado: ATIVA
+  Endereco MAC: 5c:c9:d3:7b:9c:4d
+  IPv4: 192.168.1.118/24
+  IPv6: 2804:5a10:c0f5:9c00:7df5:b71d:33e0:ef11/64,fe80::cfcd:176f:504d:557b/64
+  MTU: 1500
+
+ROTAS DE REDE
+default via 192.168.1.1 dev wlan0 proto dhcp src 192.168.1.118 metric 600 
+192.168.1.0/24 dev wlan0 proto kernel scope link src 192.168.1.118 metric 600 
+Rota padrao: default via 192.168.1.1 dev wlan0 proto dhcp src 192.168.1.118 metric 600 
+
+COMANDOS UTILIZADOS
+hostname, date, uname -r, uptime, ip link, ip address, ip route
+
+DIAGNOSTICO
+1. Interface enp1s0 ativa, mas sem endereco IPv4 configurado.
+
+=== SERVICOS E PORTAS LOCAIS (MODO DETALHADO) ===
+SOCKETS TCP
+PROTOCOLO  | ENDERECO LOCAL       | PORTA     
+tcp        | 0.0.0.0              | 3306      
+tcp        | *                    | 1716      
+tcp        | [::]                 | 3306      
+
+SOCKETS UDP
+PROTOCOLO  | ENDERECO LOCAL       | PORTA     
+udp        | 0.0.0.0              | 5353      
+udp        | *                    | 1716      
+udp        | [fe80::cfcd:176f:504d:557b]%wlan0 | 546       
+udp        | [::]                 | 5353      
+
+DETALHAMENTO
+0.0.0.0:5353 (udp) -> Escuta em todas as interfaces.
+*:1716 (udp) -> Escuta em todas as interfaces.
+[fe80::cfcd:176f:504d:557b]%wlan0:546 (udp) -> Disponivel somente localmente.
+[::]:5353 (udp) -> Escuta em todas as interfaces.
+0.0.0.0:3306 (tcp) -> Escuta em todas as interfaces.
+*:1716 (tcp) -> Escuta em todas as interfaces.
+[::]:3306 (tcp) -> Escuta em todas as interfaces.
+
+RESUMO
+Sockets TCP: 3
+Sockets UDP: 4
+Total: 7
+
+COMANDO UTILIZADO
+ss -tuln
+
+=== ANALISE DE LOG (MODO DETALHADO) ===
+Arquivo: acessos_teste.log
+Registros processados: 10
+Linhas invalidas: 0
+
+RESPOSTAS HTTP POR CODIGO
+200: 5
+302: 1
+403: 1
+404: 2
+500: 1
+
+CLASSIFICACAO
+2xx: 5 (50%)
+3xx: 1 (10%)
+4xx: 3 (30%)
+5xx: 1 (10%)
+
+REQUISICOES POR IP
+192.0.2.10: 4
+192.0.2.12: 2
+192.0.2.11: 2
+192.0.2.14: 1
+192.0.2.13: 1
+
+REQUISICOES POR RECURSO
+/produtos: 2
+/login: 2
+/: 2
+/relatorios: 1
+/nao-existe: 1
+/api/pedidos: 1
+/admin: 1
+
+REQUISICOES POR METODO
+GET: 8
+POST: 2
+
+ERROS HTTP
+Respostas 4xx: 3
+Respostas 5xx: 1
+Total: 4
+
+HORARIO
+Primeira requisicao: 09:00:00
+Ultima requisicao: 09:09:00
+
